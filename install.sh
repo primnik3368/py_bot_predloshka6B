@@ -1,7 +1,9 @@
 #!/bin/bash
 echo start install
+pkg update
+pkg install expat
 pkg install python3
-pip install -r -q requirements.txt
+pip install -r requirements.txt
 mv bot.sh ..
 cd ..
 echo install is done.
