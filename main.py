@@ -33,7 +33,6 @@ global old_timestamp
 def antispam_fun(message):
     print(f"{Fore.LIGHTBLACK_EX}called antispam_fun.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
     threshold_time = time.time() - 16
-    message = message.from_user
     with open('timelist.txt', 'r') as file:
         lines = file.readlines()
     filtered_lines = []
@@ -56,7 +55,6 @@ def antispam_fun(message):
     with open('timelist.txt', 'a') as file:
         file.write(f'{time_to_write} ')
 def remove_number_from_file(number_to_remove):
-    message = message.from_user
     print(f"{Fore.LIGHTBLACK_EX}called remove_number_from_file.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
     try:
         with open('banlist.txt', 'r') as file:
