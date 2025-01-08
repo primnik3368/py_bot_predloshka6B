@@ -55,7 +55,6 @@ def antispam_fun(message):
     with open('timelist.txt', 'a') as file:
         file.write(f'{time_to_write} ')
 def remove_number_from_file(number_to_remove):
-    print(f"{Fore.LIGHTBLACK_EX}called remove_number_from_file.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
     try:
         with open('banlist.txt', 'r') as file:
             lines = file.readlines()
@@ -162,6 +161,7 @@ def handle_unban(message):
             else:
                 number_to_remove = str(message.text.split()[1])
                 remove_number_from_file(number_to_remove)
+                print(f"{Fore.LIGHTBLACK_EX}called remove_number_from_file.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
                 global banlist
                 with open('banlist.txt', 'r') as file:
                     ban_contents = file.read()
