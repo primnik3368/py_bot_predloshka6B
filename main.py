@@ -68,18 +68,6 @@ def remove_number_from_file(number_to_remove):
 def handle_start(message):
     print(f"{Fore.MAGENTA}called /start & handle_start command.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
     bot.send_message(message.chat.id, """
-░░░░░░░░░░░░░░░░░█░░░░░░░░░░░░░░░░░
-░░░░█████████░░░░███████████░░░░░░░
-░░░██░░░░░░░██░░░█░░░░░░░░░██░░░░░░
-░░░█░░░░░░░░░░░░░█░░░░░░░░░░█░░░░░░
-░░░█░░░░░░░░░░░░░█░░░░░░░░░░█░░░░░░
-░░░██████████░░░░███████████░░░░░░░
-░░░██░░░░░░░██░░░█░░░░░░░░░██░░░░░░
-░░░█░░░░░░░░░█░░░█░░░░░░░░░░█░░░░░░
-░░░█░░░░░░░░░█░░░█░░░░░░░░░░█░░░░░░
-░░░██░░░░░░░██░░░█░░░░░░░░░██░░░░░░
-░░░░█████████░░░░███████████░░░░░░░
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 ===================================
 вас приветствует бот предложка 6В!
 автор бота: primnik3368
@@ -119,6 +107,8 @@ def handle_help(message):
                 bot.send_message(message.chat.id, "ошибка синтаксиса команды")
             else:
                 bot.send_message(message.chat.id, """список команд:
+~send {user_id} [сообщение] - отправка пользователю сообщения.
+
 ~help - список команд.
 
 ~ban {user_id} - бан пользователя и обновление бан листа.
@@ -131,6 +121,24 @@ def handle_help(message):
             bot.send_message(message.chat.id, "у тебя нету прав")
     else:
         bot.send_message(message.chat.id, "у тебя нету прав")
+@bot.message_handler(commands=['~send'])
+def handle_ban(message):
+    print(f"{Fore.MAGENTA}called /~ban & handle_ban command.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
+    if message.chat.type == 'supergroup':
+        if message.chat.id == -1002314004246:
+            if len(message.text.split()) < 3:
+                bot.send_message(message.chat.id, "ошибка синтаксиса команды")
+            else:
+                user_id = str(message.text.split()[1])
+                text_mes = ' '.join(message.text.split()[2:])
+                bot.send_message(user_id, text_mes)
+                bot.send_message('-1002314004246', "сообщение успешно отправлено✅")
+        else:
+            bot.send_message(message.chat.id, "у тебя нету прав")
+    else:
+        bot.send_message(message.chat.id, "у тебя нету прав")
+
+
 @bot.message_handler(commands=['~ban'])
 def handle_ban(message):
     print(f"{Fore.MAGENTA}called /~ban & handle_ban command.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
