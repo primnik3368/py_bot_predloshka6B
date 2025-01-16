@@ -123,7 +123,7 @@ def handle_help(message):
         bot.send_message(message.chat.id, "у тебя нету прав")
 @bot.message_handler(commands=['~send'])
 def handle_ban(message):
-    print(f"{Fore.MAGENTA}called /~ban & handle_ban command.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
+    print(f"{Fore.MAGENTA}called /~send & handle_send command.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
     if message.chat.type == 'supergroup':
         if message.chat.id == -1002314004246:
             if len(message.text.split()) < 3:
