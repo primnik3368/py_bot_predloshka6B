@@ -1,4 +1,6 @@
 #!/bin/bash
+cd ~ 
+del bot.sh
 echo start install
 pkg update
 pkg install expat
