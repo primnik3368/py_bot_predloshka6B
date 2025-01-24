@@ -98,32 +98,32 @@ id автора: 5854237707
 по одной иначе они не будут отправ-
 ленны!
 ===================================""")
-@bot.message_handler(commands=['~help'])
+@bot.message_handler(commands=['help'])
 def handle_help(message):
-    print(f"{Fore.MAGENTA}called /~help & handle_help command.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
+    print(f"{Fore.MAGENTA}called /help & handle_help command.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
     if message.chat.type == 'supergroup':
         if message.chat.id == -1002314004246:
             if len(message.text.split()) == 2 or len(message.text.split()) > 2:
                 bot.send_message(message.chat.id, "ошибка синтаксиса команды")
             else:
                 bot.send_message(message.chat.id, """список команд:
-~send {user_id} [сообщение] - отправка пользователю сообщения.
+send {user_id} [сообщение] - отправка пользователю сообщения.
 
-~help - список команд.
+help - список команд.
 
-~ban {user_id} - бан пользователя и обновление бан листа.
+ban {user_id} - бан пользователя и обновление бан листа.
 
-~unban {user_id} - анбан пользователя и обновление бан листа.
+unban {user_id} - анбан пользователя и обновление бан листа.
 
-~update - обновление бан листа.
+update - обновление бан листа.
 """)
         else:
             bot.send_message(message.chat.id, "у тебя нету прав")
     else:
         bot.send_message(message.chat.id, "у тебя нету прав")
-@bot.message_handler(commands=['~send'])
+@bot.message_handler(commands=['send'])
 def handle_ban(message):
-    print(f"{Fore.MAGENTA}called /~send & handle_send command.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
+    print(f"{Fore.MAGENTA}called /send & handle_send command.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
     if message.chat.type == 'supergroup':
         if message.chat.id == -1002314004246:
             if len(message.text.split()) < 3:
@@ -139,9 +139,9 @@ def handle_ban(message):
         bot.send_message(message.chat.id, "у тебя нету прав")
 
 
-@bot.message_handler(commands=['~ban'])
+@bot.message_handler(commands=['ban'])
 def handle_ban(message):
-    print(f"{Fore.MAGENTA}called /~ban & handle_ban command.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
+    print(f"{Fore.MAGENTA}called /ban & handle_ban command.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
     if message.chat.type == 'supergroup':
         if message.chat.id == -1002314004246:
             if len(message.text.split()) < 2 or len(message.text.split()) > 2:
@@ -162,9 +162,9 @@ def handle_ban(message):
     else:
         bot.send_message(message.chat.id, "у тебя нету прав")
 
-@bot.message_handler(commands=['~unban'])
+@bot.message_handler(commands=['unban'])
 def handle_unban(message):
-    print(f"{Fore.MAGENTA}called /~unban & handle_unban command.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
+    print(f"{Fore.MAGENTA}called /unban & handle_unban command.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
     if message.chat.type == 'supergroup':
         if message.chat.id == -1002314004246:
             if len(message.text.split()) < 2 or len(message.text.split()) > 2:
@@ -188,9 +188,9 @@ with open('banlist.txt', 'r') as file:
     ban_contents = file.read()
 global banlist
 banlist = ban_contents.split()
-@bot.message_handler(commands=['~update'])
+@bot.message_handler(commands=['update'])
 def handle_update(message):
-    print(f"{Fore.MAGENTA}called /~update & handle_update command.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
+    print(f"{Fore.MAGENTA}called /update & handle_update command.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
     if message.chat.type == 'supergroup':
         if message.chat.id == -1002314004246:
             if len(message.text.split()) == 2 or len(message.text.split()) > 2:
