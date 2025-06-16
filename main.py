@@ -13,7 +13,7 @@ import colorama
 from colorama import Fore, Style, init, Back
 from telegram import Update
 with open('bot_api_id.txt', 'r') as file:
-    api_id = file.readlines().strip()
+    api_id = file.file.read().strip()
 bot = telebot.TeleBot(str(api_id))
 from telebot import types
 init(autoreset=True)
