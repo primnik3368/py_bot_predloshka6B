@@ -596,7 +596,12 @@ def handle_video_note(message):
     elif message.chat.type == 'private' and ban_z == "ban" and prim != message.chat.id:
         bot.send_message(message.chat.id, "пользователь заблокирован🚫")
         prim = message.chat.id
-bot.polling(none_stop=True, interval=0, timeout=60)
+while True:
+    try:
+        bot.polling(none_stop=True, interval=0, timeout=60)
+    except Exception as e:
+        print(f"Ошибка: {e}")
+        time.sleep(0.3)
 
 
 
