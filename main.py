@@ -12,7 +12,9 @@ import telebot
 import colorama
 from colorama import Fore, Style, init, Back
 from telegram import Update
-bot = telebot.TeleBot('8161542540:AAH1NwiIeoBdStHfjLLR85lIF4DjR4dcEKU')
+with open('bot_api_id.txt', 'r') as file:
+    api_id = file.readlines().strip()
+bot = telebot.TeleBot(str(api_id))
 from telebot import types
 init(autoreset=True)
 print(f"""{Fore.RED}
@@ -78,7 +80,7 @@ def remove_number_from_file(number_to_remove):
 @bot.message_handler(commands=['start'])
 def handle_start(message):
     print(f"{Fore.MAGENTA}called /start & handle_start command.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
-    bot.send_message(message.chat.id, '[информация о боте] (https://telegra.ph/Predlozhka-Telegram-kanala-7V-06-14)', parse_mode='Markdown')
+    bot.send_message(message.chat.id, '[информация о боте](https://telegra.ph/Predlozhka-Telegram-kanala-7V-06-14)', parse_mode='MarkdownV2')
 @bot.message_handler(commands=['help'])
 def handle_help(message):
     print(f"{Fore.MAGENTA}called /help & handle_help command.\ncalling user: {str(message.from_user.id)} time: {time.time()}.")
