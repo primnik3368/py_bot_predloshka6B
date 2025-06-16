@@ -36,7 +36,7 @@ while hello_message1[i] != hello_message1[-1]:
     i += 1
     time.sleep(0.1)
 
-async def process_message(message.chat.id):
+async def process_message(chat_id):
     await bot.send_message(chat_id=chat_id, text="записываю...")
     await asyncio.sleep(5)
     await bot.send_message(chat_id=chat_id, text="сообщение успешно отправлено✅")
