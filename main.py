@@ -36,7 +36,7 @@ while hello_message1[i] != hello_message1[-1]:
     i += 1
     time.sleep(0.1)
 
-async def process_message(message.from_user.id):
+async def process_message(message.chat.id):
     await bot.send_message(chat_id=chat_id, text="записываю...")
     await asyncio.sleep(5)
     await bot.send_message(chat_id=chat_id, text="сообщение успешно отправлено✅")
@@ -230,11 +230,11 @@ def handle_text(message):
             print(f"{Fore.RED}markdown caption with links: *{text_with_links}*.")
             bot.send_message('-1002314004246', text=text_with_links, parse_mode='Markdown')
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
         else:
             bot.send_message('-1002314004246', text=message.text)
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
     elif message.chat.type == 'private' and ban_z == "ban" and prim != message.chat.id:
         bot.send_message(message.chat.id, "пользователь заблокирован🚫")
         prim = message.chat.id
@@ -275,16 +275,16 @@ def handle_photo(message):
             print(f"{Fore.RED}markdown caption with links: *{text_with_links}*.")
             bot.send_photo('-1002314004246', file_id, caption=text_with_links, parse_mode='Markdown')
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
         elif caption:
             print(f"{Fore.RED}caption: *{caption}*.")
             bot.send_photo('-1002314004246', file_id, caption=caption)
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
         else:
             bot.send_photo('-1002314004246', file_id)
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
     elif message.chat.type == 'private' and ban_z == "ban" and prim != message.chat.id:
         bot.send_message(message.chat.id, "пользователь заблокирован🚫")
         prim = message.chat.id
@@ -313,7 +313,7 @@ def handle_sticker(message):
         sticker_file_id = message.sticker.file_id
         bot.send_sticker('-1002314004246', sticker_file_id)
         bot.send_message('-1002314004246', soob)
-        process_message(message.from_user.id)
+        process_message(message.chat.id)
     elif message.chat.type == 'private' and ban_z == "ban" and prim != message.chat.id:
         bot.send_message(message.chat.id, "пользователь заблокирован🚫")
         prim = message.chat.id
@@ -342,7 +342,7 @@ def handle_gif(message):
         gif_file_id = message.animation.file_id
         bot.send_animation('-1002314004246', gif_file_id)
         bot.send_message('-1002314004246', soob)
-        process_message(message.from_user.id)
+        process_message(message.chat.id)
     elif message.chat.type == 'private' and ban_z == "ban" and prim != message.chat.id:
         bot.send_message(message.chat.id, "пользователь заблокирован🚫")
         prim = message.chat.id
@@ -383,16 +383,16 @@ def handle_audio(message):
             print(f"{Fore.RED}markdown caption with links: *{text_with_links}*.")
             bot.send_audio('-1002314004246', audio_id, caption=text_with_links, parse_mode='Markdown')
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
         elif caption:
             print(f"{Fore.RED}caption: *{caption}*.")
             bot.send_audio('-1002314004246', audio_id, caption=caption)
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
         else:
             bot.send_audio('-1002314004246', audio_id)
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
     elif message.chat.type == 'private' and ban_z == "ban" and prim != message.chat.id:
         bot.send_message(message.chat.id, "пользователь заблокирован🚫")
         prim = message.chat.id
@@ -433,16 +433,16 @@ def handle_document(message):
             print(f"{Fore.RED}markdown caption with links: *{text_with_links}*.")
             bot.send_document('-1002314004246', document_id, caption=text_with_links, parse_mode='Markdown')
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
         elif caption:
             print(f"{Fore.RED}caption: *{caption}*.")
             bot.send_document('-1002314004246', document_id, caption=caption)
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
         else:
             bot.send_document('-1002314004246', document_id)
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
     elif message.chat.type == 'private' and ban_z == "ban" and prim != message.chat.id:
         bot.send_message(message.chat.id, "пользователь заблокирован🚫")
         prim = message.chat.id
@@ -483,16 +483,16 @@ def handle_video(message):
             print(f"{Fore.RED}markdown caption with links: *{text_with_links}*.")
             bot.send_video('-1002314004246', video_id, caption=text_with_links, parse_mode='Markdown')
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
         elif caption:
             print(f"{Fore.RED}caption: *{caption}*.")
             bot.send_video('-1002314004246', video_id, caption=caption)
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
         else:
             bot.send_video('-1002314004246', video_id)
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
     elif message.chat.type == 'private' and ban_z == "ban" and prim != message.chat.id:
         bot.send_message(message.chat.id, "пользователь заблокирован🚫")
         prim = message.chat.id
@@ -533,16 +533,16 @@ def handle_voice(message):
             print(f"{Fore.RED}markdown caption with links: *{text_with_links}*.")
             bot.send_voice('-1002314004246', voice_id, caption=text_with_links, parse_mode='Markdown')
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
         elif caption:
             print(f"{Fore.RED}caption: *{caption}*.")
             bot.send_voice('-1002314004246', voice_id, caption=caption)
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
         else:
             bot.send_voice('-1002314004246', voice_id)
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
     elif message.chat.type == 'private' and ban_z == "ban" and prim != message.chat.id:
         bot.send_message(message.chat.id, "пользователь заблокирован🚫")
         prim = message.chat.id
@@ -583,16 +583,16 @@ def handle_video_note(message):
             print(f"{Fore.RED}markdown caption with links: *{text_with_links}*.")
             bot.send_video_note('-1002314004246', video_note_id, caption=text_with_links, parse_mode='Markdown')
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
         elif caption:
             print(f"{Fore.RED}caption: *{caption}*.")
             bot.send_video_note('-1002314004246', video_note_id, caption=caption)
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
         else:
             bot.send_video_note('-1002314004246', video_note_id)
             bot.send_message('-1002314004246', soob)
-            process_message(message.from_user.id)
+            process_message(message.chat.id)
     elif message.chat.type == 'private' and ban_z == "ban" and prim != message.chat.id:
         bot.send_message(message.chat.id, "пользователь заблокирован🚫")
         prim = message.chat.id
